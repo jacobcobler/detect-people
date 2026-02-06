@@ -26,11 +26,12 @@ while True:
          gray,
          scaleFactor=1.05,
            minNeighbors=6,
-             minSize=(60, 120))
+             minSize=(60, 120)) # decrease the chance of false positives
     
     persons_detected = False
 
     for(x,y,w,h) in persons:
+        # Filter out thin boxes
         if w * h < 8000:
              continue
         
